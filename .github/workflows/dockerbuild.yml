@@ -24,7 +24,7 @@ jobs:
         uses: docker/metadata-action@v5
         with:
           images: pechuri/ceg3120-project-4
-          # i had to use multiline here because for some reason normal way wasn't working
+          # multiline
           tags: |
             type=semver,pattern={{version}}
             type=semver,pattern={{major}}
