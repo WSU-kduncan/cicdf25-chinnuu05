@@ -20,7 +20,7 @@ jobs:
           password: ${{ secrets.DOCKER_TOKEN }}
 
       - name: Tag versioning
-        id: tags
+        id: version_info
         uses: docker/metadata-action@v5
         with:
           images: pechuri/ceg3120-project-4
@@ -37,5 +37,5 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: ${{ steps.tags.outputs.tags }}
-          labels: ${{ steps.tags.outputs.labels }}
+          tags: ${{ steps.version_info.outputs.tags }}
+          labels: ${{ steps.version_info.outputs.labels }}
