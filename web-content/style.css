@@ -1,0 +1,204 @@
+body {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background-color: #F2F1F0;
+    margin: 0;
+    padding: 0;
+    /* border:  */
+    /* color: white; */
+}
+
+.container{
+    margin: 0;
+    padding: 0;
+}
+
+/* #banner {
+    color: darkblue;
+} */
+
+.container {
+    background-color: #F2F1F0;
+}
+
+.wrightStateGold {
+    color: #E7E3C6;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    color: chartreuse;
+}
+
+h1 {
+    color: red;
+}
+
+/* ul {
+    list-style-type: none;
+
+} */
+
+/* ul li {
+    /* display: inline; */
+/* } */ */
+
+.navbar ul li {
+    display: inline;
+}
+
+.navbar ul li a {
+    padding: 20px;
+    text-decoration: none;
+    background-color: #00482B;
+    color: white;
+}
+
+.navbar ul li a:hover{
+    background-color: #AE8643;
+}
+
+.navbar ul {
+    margin: 0px;
+    padding: 20px;
+    background-color: #719949;
+    display: flex;
+    /* text-align: center; */
+    justify-content: center;
+    list-style-type: none;
+}
+    
+.navbar{
+    /* text-align: center; */
+}
+
+a {
+    color: black;
+    /* text-decoration: none; */
+}
+
+.logo{
+    background-color: #046A38;
+    color:white;
+    padding:5px;
+    text-align: center;
+}
+
+.logo h1 {
+    color: white;
+}
+
+.mainArea{
+    display: flex;
+    padding: 10px;
+}
+
+
+
+.mainDisplayImage{
+    flex: 60%;
+    /* height: 400px; */
+    /* align-content: center; */
+}
+
+.mainDisplayImage img{
+    display: block;
+    margin:0 auto;
+}
+
+.rightTextColumn{
+    flex: 20%;  
+}
+
+.subNavBar {
+    flex: 20%;
+    background-color: #719949;
+}
+
+.subNavBar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+}
+
+.subNavBar ul li {
+    padding: 10px;
+    width: 100%;
+    text-align: center;
+    height: 25px;
+}
+
+/* .subNavBar ul li:hover {
+    padding: 10px;
+    background-color: gray;
+} */
+.subNavBar ul li a:hover {
+    background-color: gray;
+    padding-top: 7px;
+    padding-bottom: 7px;
+}
+
+
+.subNavBar ul li a {
+    text-decoration: none;
+    color: white;
+    width: 100%;
+    height: 100%;
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+}
+
+
+.subTable {
+    width: auto;
+    border-collapse: collapse;
+}
+
+.subAreaTable {
+    padding: 20px;
+}
+
+.subAreaTable th {
+    background-color: green;
+    color: white;
+    border: 1px solid black;
+    padding: 8px;
+    text-align: left;
+}
+
+.subAreaTable td {
+    background-color: yellow;
+    border: 1px solid black;
+    padding: 8px;
+    text-align: left;
+}
+
+/* @media screen (min-width: 992px) {
+    
+} */
+
+.result-table {
+  width: 100%;
+  margin-top: 10px;
+}
+
+.result-table th {
+  background-color: gray;
+  padding: 8px;
+  border: 1px solid white;
+  text-align: left;
+}
+
+.result-table td {
+  padding: 8px;
+  border: 1px solid white;
+}

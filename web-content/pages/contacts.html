@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="keywords"
+      content="marker, expo, erasable markers, dry-erase marker"
+    />
+    <meta
+      name="description"
+      content="Wright's very own original Expo mark store"
+    />
+    <meta name="author" content="Bibek Raj Joshi" />
+    <link
+      rel="favicon"
+      href="../images/favicon-96x96.png"
+      type="image/x-icon"
+    />
+
+    <link rel="stylesheet" href="../style.css">
+
+    <title>Contact Form</title>
+  </head>
+  <body>
+    <div class="container">
+      <!-- div for banner of the website -->
+      <div class="logo">
+        <h1 class="">The Wright State Marker Store</h1>
+      </div>
+      <!-- start of navigation code block -->
+      <div class="navbar">
+        <ul>
+          <li>
+            <a href="../index.html">Home</a>
+          </li>
+
+          <li>
+            <a href="pages/contacts.html">About us</a>
+          </li>
+
+        </ul>
+      </div>
+      <!-- main area of the website -->
+      <div>
+
+        <h1>Contact us page</h1>
+
+        <p style="color: black">You can get in touch with us here</p>
+
+
+
+        <table>
+            <form
+			  name="contactForm"
+              onsubmit="event.preventDefault(); printName();" 
+              action="">
+                <tr>
+                    <th> First Name</th>
+                    <td> <input type="text" name="first_name" id="first_name"></td>
+                </tr>
+                <tr>
+                    <th>Last Name</th>
+                    <td><input type="text" name="last_name" id="last_name"></td>
+
+                </tr>
+                <tr>
+                    <th>Do you Like this class</th>
+                    <td> <input type="radio" name="class_likability" id="" value="YES"><label for="">Yes</label>
+                        <input type="radio" name="class_likability" id="" value="HELL_YES"><label for="">Super Yes</label></td>
+
+                  
+
+                        
+                </tr>
+
+                <tr>
+                  <th>Number One</th>
+                  <td>
+                        <label>Enter number one</label>
+                        <input type="number" name="number_one" id="first_number" value="5">
+                  </td>
+
+                </tr>
+
+                <tr>
+                  <th>Number Two</th>
+                  <td>
+                        <label>Enter number two</label> 
+                        <input type="number" name="number_two" id="second_number" value="12">
+
+                  </td>
+
+                </tr>
+                <tr>
+                    <td></td>
+                    <td colspan="2"><input type="submit" value="SEND IT">
+                     <input type="reset" value="CLEAR"></td>
+                </tr>
+                
+            </form>
+        </table>
+        
+          
+           
+           
+            
+           
+            
+           
+        
+      </div>
+
+
+    </div>
+
+
+
+    <script src="../script.js"></script>
+	
+	
+
+  </body>
+</html>
