@@ -6,8 +6,7 @@
 
 
 
-This project is basically taking a docker image that runs a web server, and setting up a Github Actions CI workflow for it so that everytime a commit is made using a different version tag, the workflow will build a new docker image using the updated repository, and push that image to DockerHub under a new version, using the `major.minor` format for the versioning tags
-
+This project is basically taking a docker image that runs a web server, and setting up a Github Actions CI workflow for it so that everytime a tag is pushed, the workflow will build a new docker image using the updated repository, and push that image to DockerHub under a new version, using a version format based on the pushed tag
 
 
 
@@ -80,8 +79,8 @@ This then triggers the workflow to build a docker image using the new commit's f
 
 
 ### Github CI Workflow
-The workflow triggers whenever there is a new push to the commit under a tag that follows this format: `"v*.*.*"`
-So for example, a commit made under the tag `v1.0.2` would trigger the workflow, `1.0` would the major version and `.2` would be the minor version. So the final DockerHub image tag would be `1.0.2`
+The workflow triggers whenever there is a new tag that has been pushed that follows this format: `"v*.*.*"`
+So for example, pushing a tag like v1.0.2 triggers the workflow. 1 would be the major version, 0 is the minor version, and 2 is the patch version. The workflow will push DockerHub tags for `latest`, `1`, and `1.0.`
 
 
 The Worfklow first checksout the Github repository, meaning it clones the repo to get the latest commits/files, so everything from the Dockerfile to the web-content.
