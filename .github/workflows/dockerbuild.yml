@@ -1,4 +1,4 @@
-name: project4-version-build
+name: project4-docker-build-versioning
 
 on:
   push:
@@ -24,11 +24,12 @@ jobs:
         uses: docker/metadata-action@v5
         with:
           images: pechuri/ceg3120-project-4
-          tags:
-            - type=semver,pattern={{version}}
-            - type=semver,pattern={{major}}
-            - type=semver,pattern={{major}}.{{minor}}
-            - type=raw,value=latest
+          # single line wasn't working so i just used a multiline
+          tags: |
+            type=semver,pattern={{version}}
+            type=semver,pattern={{major}}
+            type=semver,pattern={{major}}.{{minor}}
+            type=raw,value=latest
 
       - name: Push image to DockerHub
         uses: docker/build-push-action@v6
