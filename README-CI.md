@@ -71,7 +71,7 @@ You also have to update the GitHub secrets, so `DOCKER_USERNAME` and `DOCKER_TOK
 - To make a new git tag, you use:
     -`git tag -a v1.0.1 -m "Version message`
 
-- To push a commit under that tag using:
+- To push the tag use:
     -`git push origin v1.0.1`,
 
 This then triggers the workflow to build a docker image using the new commit's files, and upload that docker image to DockerHub with the version tag set as `1.0.1`
@@ -80,7 +80,7 @@ This then triggers the workflow to build a docker image using the new commit's f
 
 ### Github CI Workflow
 The workflow triggers whenever there is a new tag that has been pushed that follows this format: `"v*.*.*"`
-So for example, pushing a tag like v1.0.2 triggers the workflow. 1 would be the major version, 0 is the minor version, and 2 is the patch version. The workflow will push DockerHub tags for `latest`, `1`, and `1.0.`
+So for example, pushing a tag like v1.0.2 triggers the workflow. 1 would be the major version, 0 is the minor version, and 2 is the patch version. The workflow will push DockerHub tags for `latest`, `1`, and `1.0`
 
 
 The Worfklow first checksout the Github repository, meaning it clones the repo to get the latest commits/files, so everything from the Dockerfile to the web-content.
@@ -89,7 +89,7 @@ It then logins into Docker, with `docker login -u DOCKER_USERNAME -p DOCKER_TOKE
 
 Then the workflow concatenates the version for the Docker image according to what tag the Github commit was made under and puts it into the `version_info` variable so it can be used in the next step in the workflow. So if the commit was pushed under tag `v1.0.1`, the docker image would be tagged with `1.0.1`. If the Github tag is the latest version, then the workflow will automatically assign the `latest` tag to the Docker image
 
-Finally, the last step of the workflow builds the docker image, which has its tags and labels set using the `version_control` variable from the previous step, using the Dockerfile that was cloned in checkout. It pushes it to DockerHub, and the workflow is finished.
+Finally, the last step of the workflow builds the docker image, which has its tags and labels set using the `version_info` variable from the previous step, using the Dockerfile that was cloned in checkout. It pushes it to DockerHub, and the workflow is finished.
 
 if this project was copied to another repository you have to change the docker image name to your own DockerHub username/image name
 
