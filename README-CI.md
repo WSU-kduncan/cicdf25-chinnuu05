@@ -1,8 +1,15 @@
 
 
+![Workflow Diagram](/diagram.png)
+
 ## Project 4
 
+
+
 This project is basically taking a docker image that runs a web server, and setting up a Github Actions CI workflow for it so that everytime a commit is made using a different version tag, the workflow will build a new docker image using the updated repository, and push that image to DockerHub under a new version, using the `major.minor` format for the versioning tags
+
+
+
 
 ### Dockerfile
 
