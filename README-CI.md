@@ -107,6 +107,8 @@ Everything else stays the same, as long as the actual file/folder structure is u
 
 ### Testing workflow
 
+[My DockerHub repository](https://hub.docker.com/r/pechuri/ceg3120-project-4)
+
 I tested that my workflow worked successfully by verifying that the Dockerhub image was built using the right files/code from the respective Github commit. 
 
 So I basically just made a change to the website, made a new version tag, `git tag -a v1.0.8 -m "Edited website`
@@ -127,3 +129,4 @@ Then I ran it and confirmed the changes I made to the website appeared with:
 - https://docs.github.com/en/actions
 - https://docs.docker.com/reference/dockerfile/
 - https://www.cloudbees.com/blog/yaml-tutorial-everything-you-need-get-started
+- https://mermaid.js.org/intro/syntax-reference.html
