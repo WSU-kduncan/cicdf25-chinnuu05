@@ -8,6 +8,8 @@
 
 This project is basically taking a docker image that runs a web server, and setting up a Github Actions CI workflow for it so that everytime a tag is pushed, the workflow will build a new docker image using the updated repository, and push that image to DockerHub under a new version, using a version format based on the pushed tag
 
+Docker/DockerHub, Github Actions, and Git tags are all used in this project. 
+
 
 
 ### Dockerfile
