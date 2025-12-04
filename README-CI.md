@@ -89,7 +89,7 @@ The Worfklow first checksout the Github repository, meaning it clones the repo t
 
 It then logins into Docker, with `docker login -u DOCKER_USERNAME -p DOCKER_TOKEN` using the DOCKER_USERNAME and DOCKER_TOKEN GitHub secrets.
 
-Then the workflow concatenates the version for the Docker image according to what tag the Github commit was made under and puts it into the `version_info` variable so it can be used in the next step in the workflow. So if the commit was pushed under tag `v1.0.1`, the docker image would be tagged with `1.0.1`. If the Github tag is the latest version, then the workflow will automatically assign the `latest` tag to the Docker image
+Then the workflow concatenates the version for the Docker image according to what tag was pushed and puts it into the `version_info` variable so it can be used in the next step in the workflow. So if the tag pushed was `v1.0.1`, the docker image would be tagged with `1.0.1`. If the Github tag is the latest version, then the workflow will automatically assign the `latest` tag to the Docker image
 
 Finally, the last step of the workflow builds the docker image, which has its tags and labels set using the `version_info` variable from the previous step, using the Dockerfile that was cloned in checkout. It pushes it to DockerHub, and the workflow is finished.
 
@@ -112,7 +112,7 @@ Everything else stays the same, as long as the actual file/folder structure is u
 I tested that my workflow worked successfully by verifying that the Dockerhub image was built using the right files/code from the respective Github commit. 
 
 So I basically just made a change to the website, made a new version tag, `git tag -a v1.0.8 -m "Edited website`
-and then pushed that commit under the tag. `git push origin v1.0.8` 
+and then pushed that tag. `git push origin v1.0.8` 
 
 And to verify the workflow built the Docker image using the correct commit's files, I ran the Docker image for that version tag on my computer and verified the changes I made appeared on the website.
 
