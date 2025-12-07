@@ -2,6 +2,78 @@
 
 ![Workflow Diagram](/diagram.png)
 
+
+### Resources Used
+
+
+- https://github.com/actions/checkout
+    - Used this resource to clone/pull the Github repo's latest files using `actions/checkout@v4` 
+
+
+- https://docs.docker.com/build/ci/github-actions/annotations/
+- https://github.com/docker/metadata-action
+    - Used these two resources for generating the metadata for the Docker image (setting the Docker image's version from the git tag version), using `docker/metadata-action@v5`
+    - Learned how to use the `tags` field to concenate the version together from the git tag and pass that metadata to the Docker image
+
+
+
+- https://docs.github.com/en/actions/tutorials/publish-packages/publish-docker-images#publishing-images-to-docker-hub
+    - Used resource for loggng into DockerHub (`docker/login-action@` action for logging in)
+    - Learned how to pass the GitHub Secrets (`DOCKER_USERNAME` and `DOCKER_TOKEN`) into the login action
+
+
+- https://github.com/docker/build-push-action
+- https://github.com/marketplace/actions/build-and-push-docker-images
+    - Used this resource for building the Docker image using the generated version metadata, and finally pushing it to DockerHub (`docker/build-push-action@v6` for building/pushing to DockerHub).
+    - Learned how to pass the git tag version from the metadata-action step to the final `tags` and `labels` for the pushed Docker image
+    - Learned how to build the Docker image using `with: ` to specify location of Dockerfile, set the `context: .` and the `tags: ` and `labels: ` 
+   
+
+- https://docs.github.com/en/actions/reference/workflows-and-actions/workflow-syntax
+    - Used this resource for making the workflow trigger when a commit is pushed under a tag with the `"v*.*.*"` format
+
+
+- https://docs.github.com/en/actions/reference/workflows-and-actions/workflow-syntax
+    - Used this for general syntax for creating my [dockerbuild.yml](.github/workflows/dockerbuild.yml) workflow file.
+    - Provided me information on the YAML syntax the workflow should follow, a description of each field in the workflow (`name`, `on`, etc.) and activity/event filters I needed for this project like `push:` and `tags:`
+
+
+- https://github.com/docker/metadata-action#examples
+- https://docs.docker.com/build/ci/github-actions/
+    - Resource I used for the general Workflow base, I used the example fields like `on`, `jobs`, `name`, `steps`, etc. 
+
+
+
+My .yml file uses four actions: `actions/checkout@v4`, `docker/login-action@v3`, and `docker/metadata-action@v5`, and finally `docker/build-push-action@v6`. I adapted the base of the workflow found in the Github Actions documentation example links (found above) into my own workflow for this project. 
+
+`actions/checkout@v4` is used to clone the repo, `docker/login-action@v3` is used to login to DockerHub using the GitHub secrets (DOCKER_USERNAME and DOCKER_PASSWWORD), `docker/metadata-action@v5` is used to generate the metadata (image version) for the Docker image, and finally `docker/build-push-action@v6` builds and pushes the Docker image to DockerHub
+
+My .yml file starts with a `on: push: tags: "v*.*.*"`, so that any time a Github commit is pushed under a tag following this format: `v*.*.*`, my workflow will trigger
+
+
+My workflow's general structure is based on the [Github Actions documentation](https://github.com/docker/metadata-action#examples) I used, I took parts of each action and modified them for this project. I linked each of the documentation code I used above in this project to build by [dockerbuild.yml](.github/workflows/dockerbuild.yml) file
+
+I implemented the semantic versioning by following the Github actions syntax docs examples and adapting it to this project, I basically just used the docs for the `docker/metadata-actions` action to generate the tag/version metadata for the Docker image, save the version tags in the `version_info` variable, and finally use pass the version_info into the labels/tags of the Docker image that is built and pushed using the final `docker/build-push-action@v6` action 
+
+
+
+
+
+
+
+### Other Used Resources
+- https://docs.github.com/en/actions/how-tos/write-workflows/use-workflow-templates
+- https://docs.github.com/en/actions/how-tos/write-workflows/choose-when-workflows-run
+- https://docs.github.com/en/actions/reference/workflows-and-actions/workflow-
+- https://docs.github.com/en/actions/reference/workflows-and-actions/contexts
+- https://docs.github.com/en/actions/how-tos/write-workflows
+- https://docs.docker.com/reference/dockerfile/
+- https://www.cloudbees.com/blog/yaml-tutorial-everything-you-need-get-started
+- https://mermaid.js.org/intro/syntax-reference.html
+
+
+
+
 ## Project 4
 
 
@@ -125,8 +197,3 @@ Then I ran it and confirmed the changes I made to the website appeared with:
 
 
 
-### Works cited
-- https://docs.github.com/en/actions
-- https://docs.docker.com/reference/dockerfile/
-- https://www.cloudbees.com/blog/yaml-tutorial-everything-you-need-get-started
-- https://mermaid.js.org/intro/syntax-reference.html
