@@ -1,6 +1,9 @@
 
 ![CI/CD Diagram](/project-5-diagram.png)
 
+[README-CI.md file](/README-CI.md)
+
+[Website hosted on EC2](http://54.157.240.121:80)
 
 ## Project Overview 
 
