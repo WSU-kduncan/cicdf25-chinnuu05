@@ -105,6 +105,13 @@ Finally, to run the container you do:
 `docker run -d -p 8080:80 pechuri/ceg3120-project-4:1.0.8`
 Basically just specify the image name and the version of the image you want to run, then the webserver will be accessibl on port 8080
 
+You can check that the website being hosted through the Docker container is actually reachable, by doing `curl http://localhost:80`, if the website's content is shown in the response then that means the container is serving the website successfully
+
+
+
+
+
+
 
 ### Github Secrets
 I created a personal access token to login with in the CLI by going to the Docker website, Docker Home -> Settings -> Personal access tokens and clicking generate new token. I selected Read & Write scope to be able to push the image (R&W is the best suited for this project). I noted down the PAT token because I need it to set the GitHub Secret.
