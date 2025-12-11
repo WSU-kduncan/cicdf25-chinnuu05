@@ -1,0 +1,12 @@
+[Unit]
+Description=Webhook server
+After=network.target
+
+[Service]
+ExecStart=webhook -hooks /home/ubuntu/deployment/hooks.json
+WorkingDirectory=/home/ubuntu/deployment
+User=ubuntu
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

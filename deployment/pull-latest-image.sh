@@ -1,4 +1,4 @@
-
+#!/usr/bin/env bash
 
 DOCKER_IMAGE="pechuri/ceg3120-project-4:latest"
 DOCKER_CONTAINER="project-5-container"

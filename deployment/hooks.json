@@ -1,0 +1,18 @@
+[
+  {
+    "id": "deploy-image-webhook",
+    "execute-command": "/home/ubuntu/deployment/pull-latest-image.sh",
+    "command-working-directory": "/home/ubuntu/deployment",
+    "response-message": "Started bash script to pull and run latest docker image",
+    "trigger-rule": {
+      "match": {
+        "type": "value",
+        "value": "dogsaresupercool",
+        "parameter": {
+          "source": "url",
+          "name": "token"
+        }
+      }
+    }
+  }
+]
